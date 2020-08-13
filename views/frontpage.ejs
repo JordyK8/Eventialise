@@ -1,0 +1,44 @@
+<%- include("header") -%>
+
+
+
+
+
+
+<div class="content">
+  <h1>Upcomming Events</h1>
+
+</div>
+
+
+
+<div class="eventItems">
+
+
+
+
+  <ul>
+    <% eventTitleEjs.forEach(function(item){%>
+
+        <div class="item row">
+          <div class="col-6">
+            <div class="col-align-left">
+              <li class="eventTitle"><%=item.name%></li><p><%=item.location%></p>
+            </div>
+
+          </div>
+          <div class="col-6 eventTitle">
+            <form action="/event" method="post">
+              <input type="hidden" name="eventName" value='<%=item.name%>'>
+              <input type="hidden" name="eventLocation" value='<%=item.location%>'>
+              <button class="btn btn-lg" type="submit">Buy Tickets</button>
+            </form>
+          </div>
+
+        </div>
+    <%});%>
+  </ul>
+</div>
+
+
+<%- include("footer") -%>

@@ -1,0 +1,63 @@
+<%- include("header") -%>
+<div class="row">
+  <div class="col-6">
+    <div class="content">
+      <h2>Events</h2>
+      <ul>
+        <% eventListEjs.forEach(function(item){%>
+
+            <div class="row">
+              <div class="col-md-6 col-sm-12">
+                <div class="col-align-left">
+                  <li class="eventTitle2"><%=item.name%></li>
+                </div>
+
+              </div>
+              <div class="col-6 eventTitle2">
+                <form action="/deleteEvent" method="post">
+                  <input type="hidden" name="eventName" value='<%=item.name%>'>
+                  <button class="btn btn-sm" type="submit">Delete Event</button>
+                </form>
+              </div>
+
+            </div>
+        <%});%>
+      </ul>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="content">
+      <h2>Add a new Event</h2>
+
+        <form class="" action="/addevent" method="post">
+          <div class="form-group">
+            <input type="text" class="form-control" name="eventname" value="" placeholder="Event name">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="eventlocation" value="" placeholder="Location">
+            </div>
+          <div class="form-group">
+            <textarea class="form-control" name="description" rows="8" cols="80" placeholder="Description"></textarea>
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="number" name="totalavailebletickets" value="" placeholder="Total availeble tickets">
+          </div>
+            <div class="form-group">
+              <select id="age" name="agelist" class="form-control">
+                <option value="agelimit" default>Agelimit</option>
+                <option value="all">all</option>
+                <option value="16+">16+</option>
+                <option value="18+">18+</option>
+                <option value="21+">21+</option>
+              </select>
+            </div>
+
+          <button class="btn btn-lg"type="submit" name="button">Add Event</button>
+        </form>
+        </div>
+  </div>
+</div>
+
+
+
+<%- include("footer") -%>

@@ -1,0 +1,20 @@
+<%- include("header") -%>
+
+    <div class="content">
+      <h1><%=eventTicketsEjs%></h1>
+      <p>Availeble Tickets: <%=availebleTicketsEjs%></p>
+      <form action="/buytickets" method="post">
+        <div class="form-group">
+          <input class="form-control form-sm" type="number" name="ticketAmount" placeholder="Number of tickets">
+        </div>
+        <input type="hidden" name="eventName" value="<%=eventTicketsEjs%>">
+        <input type="hidden" name="eventLocation" value="<%=eventLocationEjs%>">
+        <div class="form-group">
+          <button class="btn btn-lg" type="submit" name="ticketAmountButton">Buy these tickets! </button>
+        </div>
+
+
+
+      </form>
+    </div>
+<%- include("footer") -%>
